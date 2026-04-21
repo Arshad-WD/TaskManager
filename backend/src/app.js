@@ -13,6 +13,7 @@ import adminRouters from "./routes/admin.routes.js";
 
 //Middlewares
 import { errorHandler } from "./middlewares/error.middleware.js";
+import logger from "./configs/logger.js";
 
 //swagger
 import swaggerUi from "swagger-ui-express";
@@ -53,6 +54,6 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  logger.info(`Primetrade Engine established on port ${PORT}`);
 });

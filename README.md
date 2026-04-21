@@ -5,6 +5,7 @@
 - **Base**: Node.js & Express (ESM)
 - **Database**: PostgreSQL (hosted on Neon) managed via Prisma ORM
 - **Security**: JWT Authentication, Bcrypt password hashing, Helmet.js headers, and global Rate Limiting
+- **Caching**: Valkey performance layer for dashboard responsiveness
 - **Documentation**: Integrated Swagger UI for API exploration
 
 ### Frontend Architecture
@@ -46,7 +47,7 @@
 ### 1. Prerequisites
 - Node.js (v18+)
 - A PostgreSQL database (Neon recommended)
-
+- A Valkey instance (hosted or local)
 ### 2. Backend Setup
 1. `cd backend`
 2. `npm install`
@@ -54,6 +55,7 @@
    ```env
    DATABASE_URL="your-postgresql-url"
    JWT_SECRET="your-secure-secret"
+   VALKEY_URL="your-valkey-connection-string"
    PORT=5000
    ```
 4. Push the database schema: `npm run db:push`
@@ -64,6 +66,16 @@
 2. `npm install`
 3. Start the terminal UI: `npm run dev`
 4. Access the portal at `http://localhost:3000`
+
+## 🐳 Docker Orchestration
+
+The entire Primetrade ecosystem is containerized for rapid deployment.
+
+1. **Build and Launch**:
+   ```bash
+   docker-compose up --build
+   ```
+   This command will spin up the Node.js API, the Next.js Web Portal, and a local Redis/Valkey instance, linking them automatically.
 
 ## 🔑 Test Credentials (Administrator)
 

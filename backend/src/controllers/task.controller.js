@@ -30,7 +30,7 @@ export const update = async (req, res, next) => {
 
 export const remove = async (req, res, next) => {
     try{
-        await service.deleteTask(req.params.id);
+        await service.deleteTask(req.params.id, req.user.userId);
         res.json({ message: "Deleted"});
     }catch(error){
         next(error);
