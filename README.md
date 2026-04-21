@@ -1,6 +1,3 @@
-# Primetrade.ai | Institutional Trading Terminal
-
-Primetrade.ai is a high-fidelity, industrial-grade task management and telemetry terminal designed for high-stakes financial operations. Built with a "Kinetic Obsidian" design philosophy, it features a glassmorphic aesthetic, real-time data synchronization, and institutional-grade security.
 
 ## 🚀 Technical Stack
 
