@@ -1,6 +1,6 @@
 import prisma from "../configs/db.js";
 
-export const createTask = (data) => {
+export const createTask = (data, userId) => {
     return prisma.task.create({
         data: { ...data, userId },
     });

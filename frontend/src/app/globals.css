@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-space-grotesk);
+
+  /* Obsidian Velocity Colors */
+  --color-brand-primary: #dfb7ff;
+  --color-brand-container: #9d00ff;
+  --color-brand-tertiary: #00dce5;
+  
+  --color-surface: #131313;
+  --color-surface-low: #1c1b1b;
+  --color-surface-high: #2a2a2a;
+  --color-surface-bright: #3a3939;
+
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #d1c1d9;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: theme(colors.black);
+    background-image: 
+      linear-gradient(rgba(157, 0, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(157, 0, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass-card {
+    @apply bg-surface/80 backdrop-blur-[20px] rounded-xl shadow-[0_8px_32px_0_rgba(157,0,255,0.06)] border border-white/5;
+  }
+  .input-field {
+    @apply w-full bg-[#0e0e0e] border-b-2 border-surface-high focus:border-brand-tertiary text-on-surface px-4 py-3 rounded-t-lg outline-none transition-colors;
+  }
+  .primary-btn {
+    @apply bg-gradient-to-br from-brand-primary to-brand-container text-white py-3 px-6 rounded-xl font-bold tracking-wide hover:shadow-[0_0_20px_0_rgba(157,0,255,0.4)] transition-all font-display;
+  }
+  .ghost-btn {
+    @apply border border-white/20 bg-surface-high/50 text-on-surface py-3 px-6 rounded-xl hover:bg-surface-bright transition-all font-display;
+  }
 }
